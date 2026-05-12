@@ -16,15 +16,15 @@ def get_max(lst):
     lst.sort()
     return lst[-1]
 
-def get_sum(lst):
-    total = 0
+def get_sum(lst):                        # сумма до нуля
+    total = 0 
     for i in range(len(lst)):
         if lst[i] == 0:
             break
         total += lst[i]
     return total
 
-def get_product(lst):
+def get_sum2(lst):                        # сумма до единицы
     result = 1
     for i in range(len(lst)):
         if lst[i] == 1:
@@ -33,13 +33,13 @@ def get_product(lst):
     return result
 
 def get_greater(lst):
-    threshold = 3
-    sign = '<'
+    threshold = 3                   # порог сравнения
+    sign = '<'                      # эл-ты с меньше
     found = []
     if sign == '<':
         for item in lst:
             if threshold < item:
-                found.append(item)
+                found.append(item)                   
     if sign == '>':
         for item in lst:
             if threshold < item:
@@ -47,11 +47,12 @@ def get_greater(lst):
     return found
 
 nums = [1, 2, 5, 1, 3, 7, 8, 9]
-print(get_min(nums), get_max(nums), get_sum(nums), get_product(nums), get_greater(nums))
+print(get_min(nums), get_max(nums), get_sum(nums), get_sum2(nums), get_greater(nums))
+
 
 
 # Лаба 3
-students = ['Васильев', 'Кузнецов', 'Юдичев', 'Лебедев']
+students = ['Васильев', 'Орлов', 'Коваль', 'Серов']
 subjects = ['Русский язык', 'Английский язык', 'Китайский язык']
 grades   = ['5', '4', '3', '2']
 dates    = ['2.02', '3.03', '4.04']
@@ -64,7 +65,7 @@ for student in students:
     for subject in subjects:
         for date in dates:
             if subject in allowed_subjects and date in allowed_dates:
-                grade = ''
+                grade = ''                                                            # обнуление оценки
                 for g in grades:
                     if g not in used_grades:
                         grade = g
@@ -94,7 +95,7 @@ def rec_max(lst, cur_max):
         return rec_max(lst[1:], cur_max)
     return cur_max
 
-data = [10, 3, 2, 1, 4, 5]
+data = [9, 3, 2, 1, 4, 5]
 print(rec_sum(data), rec_min(data[1:], data[0]), rec_max(data[1:], data[0]))
 
 
